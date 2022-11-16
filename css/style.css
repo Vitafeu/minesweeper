@@ -1,8 +1,60 @@
+@font-face {
+    font-family: "Pixel";
+    src: url("../fonts/pixel.ttf");
+}
+
+body {
+    background-color: #b4b4b4;
+}
+
 table {
     border: 2px solid black;
+    font-family: 'Pixel';
 }
 
 td {
     border: 2px solid black;
     text-align: center;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.blue {
+    color: #0051ff;
+}
+
+.green {
+    color: #05f52d;
+}
+
+.red {
+    color: red;
+}
+
+.purple {
+    color: #b807f2;
+}
+
+.maroon {
+    color: #752d06;
+}
+
+.turquoise {
+    color: #148585;
+}
+
+.black {
+    color: #000000;
+}
+
+.gray {
+    color: #5a5a5a;
+}
+
+.mine {
+    background-size: 100%;
+    background-image: url("../img/mine.png");
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
 }
