@@ -24,7 +24,9 @@ function createTable(tableData) {
 
             if (cellData == "X") {
                 cell.classList.add("mine");
-            } else if (cellData != "0") {
+            }
+            
+            if (cellData != "0") {
                 cell.appendChild(document.createTextNode(cellData));
             }
 
@@ -188,7 +190,12 @@ function showTile (element) {
         element.classList.remove("flag");
     } else if (element.classList.contains("tile")) {
         element.classList.remove("tile");
+
+        if (element.textContent == "X") {
+            console.log("you lose !")
+        }
     }
+
 
 }
 
