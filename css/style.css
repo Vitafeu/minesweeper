@@ -10,6 +10,7 @@ body {
 table {
     border: 2px solid black;
     font-family: 'Pixel';
+    user-select: none;
 }
 
 td {
@@ -55,6 +56,18 @@ td {
 .mine {
     background-size: 100%;
     background-image: url("../img/mine.png");
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+
+.tile {
+    background: #7a7a7a;
+    color: rgba(0, 0, 0, 0);
+}
+
+.flag {
+    background-size: 100%;
+    background-image: url("../img/flag.png");
     background-repeat: no-repeat;
     image-rendering: pixelated;
 }
