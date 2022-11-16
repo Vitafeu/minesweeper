@@ -58,6 +58,7 @@ td {
     background-image: url("../img/mine.png");
     background-repeat: no-repeat;
     image-rendering: pixelated;
+    color: rgba(0, 0, 0, 0);
 }
 
 .tile {
