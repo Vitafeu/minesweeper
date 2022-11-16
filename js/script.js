@@ -9,6 +9,18 @@ function createTable(tableData) {
 
         rowData.forEach(function(cellData) {
             let cell = document.createElement('td');
+            cell.classList.add("tile");
+            cell.addEventListener('mouseup', (e) => {
+                switch (e.button) {
+                  case 0:
+                    showTile(cell);
+                    break;
+                  case 2:
+                    placeFlag(cell);
+                    break;
+                  default:
+                    break;
+            }});
 
             if (cellData == "X") {
                 cell.classList.add("mine");
@@ -143,7 +155,18 @@ function createGrid(sizeY, sizeX, mines) {
     createTable(grid);
 }
 
+function destroyGrid() {
+    let grids = document.getElementsByTagName("table");
+
+    for (let i = 0; i < grids.length; i++) {
+        grids[i].remove();
+    }
+}
+
 function initGame(difficulty) {
+
+    destroyGrid();
+
     switch (difficulty) {
         case 'begginer':
             createGrid(9, 9, 10);
@@ -157,4 +180,23 @@ function initGame(difficulty) {
         default:
             break;
     }
+}
+
+function showTile (element) {
+
+    if (element.classList.contains("flag")) {
+        element.classList.remove("flag");
+    } else if (element.classList.contains("tile")) {
+        element.classList.remove("tile");
+    }
+
+}
+
+function placeFlag(element) {
+    if (element.classList.contains("flag")) {
+        element.classList.remove("flag");
+    } else if (element.classList.contains("tile")) {
+        element.classList.add("flag");
+    }
+    
 }
