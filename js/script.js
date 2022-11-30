@@ -184,7 +184,7 @@ function initGame(difficulty) {
     }
 }
 
-function showTile (element) {
+function showTile(element) {
 
     if (element.classList.contains("flag")) {
         element.classList.remove("flag");
@@ -192,11 +192,16 @@ function showTile (element) {
         element.classList.remove("tile");
 
         if (element.textContent == "X") {
-            console.log("you lose !")
+            setTimeout(function(){
+                alert("You lose !")
+                destroyGrid();
+            }, 100);
+        } else if (element.textContent == "") {
+            revealNearZeros(element);
         }
     }
 
-
+    winCheck();
 }
 
 function placeFlag(element) {
@@ -206,4 +211,36 @@ function placeFlag(element) {
         element.classList.add("flag");
     }
     
+}
+
+function revealNearZeros(element) {
+    let grid = document.getElementsByTagName("table")[0];
+
+    for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+            if ((i != 0) || (j != 0)) {
+                try {
+                    if (typeof grid.rows[element.parentNode.rowIndex + i].cells[element.cellIndex + j] != "undefined") {
+                        showTile(grid.rows[element.parentNode.rowIndex + i].cells[element.cellIndex + j]);
+                    }        
+                } catch (error) {
+                    break;
+                }
+            }
+        }
+    }
+}
+
+function winCheck() {
+    let grid = document.getElementsByTagName("table")[0];
+
+    for (var i = 0, r = grid.rows.length; i < r; i++) {
+        for (var j = 0, c = grid.rows[i].cells.length; j < c; j++) {
+            if (grid.rows[i].cells[j].textContent != "X" && grid.rows[i].cells[j].classList.contains("tile")) {
+                return;
+            }
+
+            //console.log("You win !")
+        }
+    }
 }
