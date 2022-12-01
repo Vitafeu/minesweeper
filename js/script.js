@@ -158,28 +158,6 @@ function createGrid(sizeY, sizeX, mines) {
     createTable(grid);
 }
 
-function tableToArray(table) {
-    let result = Array();
-    let rows = table.rows;
-    let cells, t;
-  
-    for (let i=0, iLen=rows.length; i<iLen; i++) {
-      cells = rows[i].cells;
-      t = [];
-  
-      for (let j=0, jLen=cells.length; j<jLen; j++) {
-        t.push(cells[j].textContent);
-      }
-      result.push(t);
-    }
-    return result; 
-  }
-
-function removeNearEmptyTiles(cell, grid) {
-    while (!cell.textContent) {
-        
-    }
-}
 
 function destroyGrid() {
     let grids = document.getElementsByTagName("table");
