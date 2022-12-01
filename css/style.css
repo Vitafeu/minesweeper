@@ -72,3 +72,12 @@ td {
     background-repeat: no-repeat;
     image-rendering: pixelated;
 }
+
+#timeDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+i {
+    margin: 17px;
+}
