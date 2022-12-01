@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <title>Online Minesweeper</title>
+    <script src="https://kit.fontawesome.com/c86dd07ff4.js" crossorigin="anonymous"></script>
 </head>
 <body oncontextmenu="event.preventDefault();">
     <div>
-        <button onclick="initGame('begginer')">Begginer</button>
-        <button onclick="initGame('intermediate')">Intermediate</button>
-        <button onclick="initGame('expert')">Expert</button>
-        <button onclick="initGame('custom')">Custom</button>
+        
+        <input type="radio" name="gameMode" value="begginer">
+        <label>Begginer</label>
+        <input type="radio" name="gameMode" value="intermediate">
+        <label>Intermediate</label>
+        <input type="radio" name="gameMode" value="expert">
+        <label>Expert</label>
+        <input type="radio" name="gameMode" value="custom">
+        <label>Custom</label>
+        <button onclick="initGame()">Play !</button>
     </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
