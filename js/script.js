@@ -2,6 +2,7 @@
 
 var fullTime;
 var timer;
+var difficulty;
 
 // ---------------------------- Functions ----------------------------
 
@@ -186,7 +187,6 @@ function initGame() {
     destroyGrid();
 
     let inputs = document.getElementsByTagName('input');
-    let difficulty;
 
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].type == "radio" && inputs[i].checked) {
@@ -327,10 +327,10 @@ function createHTMLTimer() {
 
     bestTimeIcon.classList.add('fa-solid', 'fa-trophy');
 
-    if (localStorage.getItem("bestTime") == null) {
+    if (localStorage.getItem("bestTime" + difficulty) == null) {
         bestTime.innerHTML = "00:00";
     } else {
-        bestTime.innerHTML = localStorage.getItem("bestTime");
+        bestTime.innerHTML = localStorage.getItem("bestTime" + difficulty);
     }
     
     times.appendChild(bestTimeIcon);
@@ -343,23 +343,23 @@ function createHTMLTimer() {
 
 
 function setBestTime() {
-    if (localStorage.getItem('bestTime') != null) {
+    if (localStorage.getItem('bestTime' + difficulty) != null) {
         let finalTime = fullTime.split(':');
         let seconds = parseInt(finalTime[1]);
         let minutes = parseInt(finalTime[0]);
 
-        let bestTime = localStorage.getItem('bestTime').split(':');
+        let bestTime = localStorage.getItem('bestTime' + difficulty).split(':');
         let bestSeconds = parseInt(bestTime[1]);
         let bestMinutes = parseInt(bestTime[0]);
 
         if (minutes < bestMinutes) {
-            localStorage.setItem('bestTime', fullTime);
+            localStorage.setItem('bestTime' + difficulty, fullTime);
         } else if (minutes == bestMinutes) {
             if (seconds < bestSeconds) {
-                localStorage.setItem('bestTime', fullTime);
+                localStorage.setItem('bestTime' + difficulty, fullTime);
             }
         }
     } else {
-        localStorage.setItem('bestTime', fullTime);
+        localStorage.setItem('bestTime' + difficulty, fullTime);
     }
 }
