@@ -1,3 +1,9 @@
+<?php 
+
+    require_once "php/functions.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +24,12 @@
         <label>Expert</label>
         <button onclick="initGame()">Play !</button>
     </div>
+
+    <?php 
+    
+        createGrid();
+
+    ?>
 
     <script src="js/script.js"></script>
 </body>
