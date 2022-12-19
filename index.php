@@ -27,7 +27,11 @@
 
     <?php 
     
-        createGrid();
+        $sizeX = 9;
+        $sizeY = 9;
+        $mines = 10;
+
+        createGrid($sizeY, $sizeX, $mines);
 
     ?>
 
